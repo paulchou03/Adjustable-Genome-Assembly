@@ -7,6 +7,7 @@ k = 12
 max_mismatches = 3
 low_thresh = 4
 high_thresh = 49
+readLength = 48
 step = 25
 
 readList = []
@@ -122,11 +123,9 @@ for kmer in list(path)[1:]:
     genome += kmer[-1]  
 
 ansList = []
-readLength = 48
-counter = 0
 for i in range(len(genome) - readLength + 1):
     for read in readList:
-        readsegment = read[:48]
+        readsegment = read[:readLength]
         genomesegment = genome[i:i+readLength]
         if isThereMismatch(genomesegment, readsegment):
             ansList.append([read, readList.index(read)])
