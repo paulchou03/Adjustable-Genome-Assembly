@@ -10,7 +10,7 @@ high_thresh = 49
 step = 25
 
 readList = []
-with open('project2b_reads.fasta', 'r') as file:
+with open('reads.fasta', 'r') as file:
     lines = file.readlines()
     for line in lines:
         line = line.strip()
