@@ -31,3 +31,43 @@ ACGTACGTGACTAGCT...
 >read_1
 TACGTGACTGGTAGCA...
 ...
+```
+
+## Parameters
+
+The following parameters can be configured in the script to control the behavior of the genome assembler:
+
+- `readLength` *(int)*  
+  Represents the number of base pairs per read (e.g., 50, 150, 300, etc.).  
+
+- `k` *(int)*  
+  Length of k-mers used to construct the de Bruijn graph. Affects assembly sensitivity and specificity.  
+
+- `max_mismatches` *(int)*  
+  Maximum number of mismatches allowed when aligning a read back to the assembled genome.  
+
+- `low_thresh` *(int)*  
+  Minimum frequency a k-mer must have to be included in the graph. Filters out sequencing errors and low-confidence k-mers.  
+
+- `high_thresh` *(int)*  
+  Frequency above which a k-mer is considered repetitive. Such k-mers are downweighted using the `step` value.  
+
+- `step` *(int)*  
+  Determines how much to increase the count weight for overrepresented k-mers (used to adjust path traversal frequency).  
+
+##  Output
+
+After assembling the genome and aligning reads with mismatch tolerance, the script generates a file called `output.txt`.
+
+### `output.txt`
+
+This file contains the subset of input reads that successfully align to the assembled genome (with up to `max_mismatches` differences).
+
+Each aligned read is output in FASTA format:
+
+```fasta
+>read_3
+ACGTACGTGACTAGCTAGTTACGGAGGACCT...
+>read_17
+TACGTGACTGGTAGCACAGGTTAGCGTCAG...
+...
