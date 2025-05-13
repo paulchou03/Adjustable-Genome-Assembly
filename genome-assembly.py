@@ -29,7 +29,7 @@ for read in readList:
 
 ans = []
 
-def isThereMismatch(genomesubstr: str, readseg: str) -> bool:
+def isThereMismatch(genomesubstr: str, readseg: str):
     if len(genomesubstr) != len(readseg):  
         return False 
     counter = 0
