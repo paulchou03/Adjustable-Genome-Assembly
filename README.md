@@ -11,7 +11,6 @@ Given a FASTA file of short DNA reads, the assembler:
 1. Extracts k-mers and filters them based on customizable frequency thresholds.
 2. Constructs a de Bruijn graph from the filtered k-mers.
 3. Traverses the graph to assemble the genome by identifying an **Eulerian path**.
-4. Aligns the assembled genome back to the reads, allowing for mismatches.
 
 This method supports control over:
 
